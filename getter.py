@@ -31,7 +31,9 @@ for i in mod:
                 covered_mods[j.name] = [i.display_name]
     except Exception as e:
         print(e)
+
 with open("data/users.json", "w") as f:
     json.dump(covered_mods, f)
+    
 with open("data/subs.json", "w") as f:
     json.dump(covered_subs, f)
