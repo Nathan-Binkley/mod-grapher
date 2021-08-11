@@ -20,11 +20,11 @@ g = Network(height = 800, width = 1080, notebook=True)
 for i, v in enumerate(subs):
     g.add_node(v, label = v, color = "#000099")
 for i, v in enumerate(users):
-    g.add_node("u/"+str(v), label = v, color="#990000")
+    g.add_node("u/"+str(v), label = v, color="#FFFFFF")
 
 for i in users:
     for j in users[i]:
-        g.add_edge("u/"+str(i), j, weight=.5)
+        g.add_edge("u/"+str(i), j, weight=10)
 
 g.barnes_hut() #Physics solver or something?
 g.show("ex.html")
