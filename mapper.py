@@ -16,15 +16,22 @@ def getData():
 
 getData()
 
-g = Network(height = 800, width = 1080, notebook=True)
+g = Network(height ="100%", width = "100%", notebook=True, bgcolor="#000", font_color="white")
 for i, v in enumerate(subs):
     g.add_node(v, label = v, color = "#000099")
 for i, v in enumerate(users):
-    g.add_node("u/"+str(v), label = v, color="#FFFFFF")
+    if v == "awkwardtheturtle":
+        g.add_node("u/"+str(v), label = "u/"+str(v), color="#0F0")
+    else:
+        g.add_node("u/"+str(v), label = "u/"+str(v), color="#FFFFFF")
 
 for i in users:
     for j in users[i]:
-        g.add_edge("u/"+str(i), j, weight=10)
+        if i == 'awkwardtheturtle':
+            g.add_edge("u/"+str(i), j, weight=10, color="#0F0")
+        else:
+            g.add_edge("u/"+str(i), j, weight=10, color="#F0F")
 
-g.barnes_hut() #Physics solver or something?
+
+g.hrepulsion() #Physics solver or something?
 g.show("ex.html")
